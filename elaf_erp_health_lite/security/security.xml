@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_erp_health" model="ir.module.category">
+        <field name="name">ERP Health Check</field>
+        <field name="sequence">60</field>
+    </record>
+
+
+    <record id="group_health_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_erp_health"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Runs health scans and reviews scans, findings and affected records.</field>
+    </record>
+
+    <record id="group_health_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_erp_health"/>
+        <field name="implied_ids" eval="[(4, ref('group_health_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">Configures checks and thresholds, and can delete scans.</field>
+    </record>
+
+    <!-- HC-04 / HC-21: a finding with results (problem found or passed) is
+         visible only to users who may read the data behind its check
+         (accounting checks need accounting read access, sales checks need
+         read access to sales orders, ...). "Not applicable" rows carry no
+         data (no count, ids or exposure) and stay visible, so a user sees why
+         a check was not run ("Requires accounting access"). Global rule, kept
+         updatable so the domain follows module updates. -->
+    <record id="rule_health_finding_data_access" model="ir.rule">
+        <field name="name">ERP Health finding: only checks whose data the user may read</field>
+        <field name="model_id" ref="model_elaf_health_finding"/>
+        <field name="domain_force">['|', ('result', '=', 'na'), ('check_code', 'not in', user._elaf_hc_denied_check_codes())]</field>
+    </record>
+
+    <data noupdate="1">
+        <record id="rule_health_scan_company" model="ir.rule">
+            <field name="name">ERP Health scan: multi-company</field>
+            <field name="model_id" ref="model_elaf_health_scan"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="rule_health_finding_company" model="ir.rule">
+            <field name="name">ERP Health finding: multi-company</field>
+            <field name="model_id" ref="model_elaf_health_finding"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

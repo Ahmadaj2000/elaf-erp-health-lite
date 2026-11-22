@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="elaf_erp_health_lite.Dashboard">
+        <div class="o_action o_elaf_hc_dashboard">
+            <div class="o_elaf_hc_header">
+                <div>
+                    <h1>
+                        ERP Health Check
+                        <t t-if="data">
+                            <span t-if="isLite" class="o_elaf_hc_edition">Lite Edition</span>
+                            <span t-else="" class="o_elaf_hc_edition is-pro">Pro Edition</span>
+                        </t>
+                    </h1>
+                    <p class="o_elaf_hc_subtitle">
+                        Discover hidden risks before they become costly problems.
+                        <t t-if="data"> · <t t-esc="data.company.name"/></t>
+                    </p>
+                </div>
+                <div class="o_elaf_hc_runbar" t-if="data and data.can_run">
+                    <label class="visually-hidden" for="elaf_hc_scope">Scope</label>
+                    <select id="elaf_hc_scope" class="form-select" t-model="state.scope" t-att-disabled="state.running or (isLite and data.bound_scope)">
+                        <t t-foreach="data.scopes" t-as="s" t-key="s.key">
+                            <option t-att-value="s.key" t-esc="s.label"/>
+                        </t>
+                    </select>
+                    <button class="btn btn-elaf" t-on-click="runScan" t-att-disabled="state.running or data.company_blocked"
+                            t-att-title="runTitle">
+                        <i t-if="state.running" class="fa fa-spinner fa-spin me-1"/>
+                        <i t-else="" class="fa fa-heartbeat me-1"/>
+                        <t t-if="state.running">Scanning…</t>
+                        <t t-elif="isLite and usage and usage.exhausted">Run scan (see Pro)</t>
+                        <t t-else="">Run scan</t>
+                    </button>
+                    <button t-if="isLite and data.can_bind" class="btn btn-light" t-on-click="bindScope"
+                            t-att-disabled="state.running" title="Only managers can choose it, and only once">
+                        <i class="fa fa-thumb-tack me-1"/>Set as audited module
+                    </button>
+                    <button class="btn btn-light" t-on-click="() => this.load()" t-att-disabled="state.loading" title="Refresh">
+                        <i class="fa fa-refresh"/>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading / error -->
+            <div t-if="state.loading and !data" class="o_elaf_hc_state">
+                <i class="fa fa-spinner fa-spin fa-2x mb-2"/>
+                <div class="o_elaf_hc_state_title">Loading health data…</div>
+            </div>
+            <div t-elif="state.error" class="o_elaf_hc_state error">
+                <div class="o_elaf_hc_state_title">The dashboard could not be loaded</div>
+                <div t-esc="state.error"/>
+                <button class="btn btn-light mt-3" t-on-click="() => this.load()">Retry</button>
+            </div>
+
+            <t t-elif="data">
+                <!-- Lite banners -->
+                <div t-if="data.company_blocked" class="o_elaf_hc_banner bad" role="alert">
+                    <div>The Lite edition works with one company: <strong t-esc="data.bound_company"/>. Scans of this company are part of ERP Health Check Pro. Existing scans stay viewable.</div>
+                    <button class="btn btn-sm btn-light" t-on-click="openLiteVsPro">Lite vs Pro</button>
+                </div>
+                <div t-elif="isLite and usage and usage.exhausted" class="o_elaf_hc_banner bad" role="status">
+                    <div>You have used <strong><t t-esc="usage.used"/> of <t t-esc="usage.limit"/></strong> Lite scans. All scans, findings and affected records remain available. Pro runs unlimited, scheduled and cross-module scans.</div>
+                    <button class="btn btn-sm btn-elaf" t-on-click="openLiteVsPro">Compare Lite and Pro</button>
+                </div>
+                <div t-elif="isLite and usage and usage.caps_enabled and usage.pct >= 80" class="o_elaf_hc_banner warn" role="status">
+                    <div><strong t-esc="usage.remaining"/> Lite scan(s) left.</div>
+                    <button class="btn btn-sm btn-light" t-on-click="openLiteVsPro">Lite vs Pro</button>
+                </div>
+
+                <!-- Lite: one audited business module (S5-H3) -->
+                <div t-if="isLite and data.bound_scope" class="o_elaf_hc_banner o_elaf_hc_bound" role="status">
+                    <div><i class="fa fa-thumb-tack me-1"/>Audited module: <strong t-esc="data.bound_scope_label"/>. The Lite edition audits this one business module; it cannot be changed in Lite. Pro audits every module.</div>
+                    <button class="btn btn-sm btn-light" t-on-click="openLiteVsPro">Lite vs Pro</button>
+                </div>
+                <div t-elif="isLite" class="o_elaf_hc_banner o_elaf_hc_bound" role="status">
+                    <div><i class="fa fa-info-circle me-1"/>The Lite edition audits one business module. Your first completed scan sets it (a manager can also choose it first), and it cannot be changed in Lite afterwards.</div>
+                </div>
+
+                <!-- Empty state -->
+                <div t-if="!data.latest" class="o_elaf_hc_card o_elaf_hc_state mb-3">
+                    <div class="o_elaf_hc_state_title">No scan yet</div>
+                    <div>Choose a business area above and click <strong>Run scan</strong>. The scan checks your real records and gives a Health Score with the problems found.</div>
+                </div>
+
+                <t t-else="">
+                    <div class="o_elaf_hc_hero">
+                        <div class="o_elaf_hc_gauge_card" t-on-click="() => this.openScan(data.latest.id)" role="button">
+                            <ElafHcGauge score="data.latest.score" band="data.latest.band or ''"
+                                         label="data.latest.band_label or ''" available="data.latest.score_available"/>
+                            <div class="fw-semibold" t-esc="data.latest.scope_label"/>
+                            <div class="o_elaf_hc_gauge_meta">
+                                <t t-esc="data.latest.name"/> · <t t-esc="fmtDate(data.latest.date)"/>
+                            </div>
+                            <div class="o_elaf_hc_gauge_meta" t-if="data.latest.delta !== null">
+                                vs previous scan (<t t-esc="data.latest.previous_name"/>):
+                                <span dir="ltr" t-attf-class="o_elaf_hc_delta o_elaf_hc_ltr {{ deltaClass(data.latest.delta) }}" t-esc="fmtDelta(data.latest.delta)"/>
+                            </div>
+                            <div class="o_elaf_hc_gauge_meta" t-else="">First scan of this area: no comparison yet.</div>
+                            <div class="o_elaf_hc_gauge_meta" t-if="!data.latest.score_available">No check result of this scan is visible to you (no applicable check, or checks that need access rights you do not have).</div>
+                            <div class="o_elaf_hc_gauge_meta" t-if="data.latest.hidden_count">
+                                <i class="fa fa-eye-slash me-1"/><t t-esc="data.latest.hidden_count"/> check(s) hidden: they need access rights you do not have and are not in your score.
+                            </div>
+                        </div>
+                        <div class="o_elaf_hc_kpis mb-0">
+                            <div t-attf-class="o_elaf_hc_kpi {{ kpiClass(data.latest.problem_count) }}" role="button"
+                                 t-on-click="() => this.openByResult('fail')">
+                                <div class="o_elaf_hc_kpi_label">Problems found</div>
+                                <div class="o_elaf_hc_kpi_value" t-esc="data.latest.problem_count"/>
+                                <div class="o_elaf_hc_kpi_hint">checks with at least one problem</div>
+                            </div>
+                            <div t-attf-class="o_elaf_hc_kpi {{ kpiClass(data.latest.affected_count) }}" role="button"
+                                 t-on-click="() => this.openByResult('fail')">
+                                <div class="o_elaf_hc_kpi_label">Affected records</div>
+                                <div class="o_elaf_hc_kpi_value" t-esc="data.latest.affected_count"/>
+                                <div class="o_elaf_hc_kpi_hint">records to correct</div>
+                            </div>
+                            <div t-attf-class="o_elaf_hc_kpi {{ data.latest.pass_count === data.latest.check_count ? 'is-ok' : '' }}" role="button"
+                                 t-on-click="() => this.openByResult('pass')">
+                                <div class="o_elaf_hc_kpi_label">Checks passed</div>
+                                <div class="o_elaf_hc_kpi_value"><span dir="ltr" class="o_elaf_hc_ltr"><t t-esc="data.latest.pass_count"/> / <t t-esc="data.latest.check_count"/></span></div>
+                                <div class="o_elaf_hc_kpi_hint">applicable checks without problems</div>
+                            </div>
+                            <div class="o_elaf_hc_kpi" role="button"
+                                 t-on-click="() => this.openByResult('na')">
+                                <div class="o_elaf_hc_kpi_label">Not applicable</div>
+                                <div class="o_elaf_hc_kpi_value" t-esc="data.latest.na_count"/>
+                                <div class="o_elaf_hc_kpi_hint">required app not installed or access needed</div>
+                            </div>
+                            <div class="o_elaf_hc_kpi" role="button" t-on-click="() => this.openScans()">
+                                <div class="o_elaf_hc_kpi_label">Scans</div>
+                                <div class="o_elaf_hc_kpi_value" t-esc="data.scan_total"/>
+                                <div class="o_elaf_hc_kpi_hint">for this company</div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+                <div class="o_elaf_hc_grid o_elaf_hc_main_grid">
+                    <div class="o_elaf_hc_card" t-if="data.latest">
+                        <h2>Findings by severity <small class="text-muted">(latest scan)</small></h2>
+                        <div class="o_elaf_hc_sev">
+                            <t t-foreach="data.severity" t-as="row" t-key="row.key">
+                                <div t-attf-class="o_elaf_hc_sev_row {{ row.key }}" role="button"
+                                     t-on-click="() => this.openFindings([['result', '=', 'fail'], ['severity', '=', row.key]], row.label)">
+                                    <span t-esc="row.label"/>
+                                    <span class="o_elaf_hc_sev_bar"><span t-attf-style="width: {{ (100 * row.records / maxSeverity).toFixed(1) }}%"/></span>
+                                    <span class="text-end"><t t-esc="row.records"/></span>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="text-muted small mt-2">Bar length: affected records per severity. Click a row to open the findings.</div>
+                    </div>
+
+                    <div class="o_elaf_hc_card" t-if="data.latest">
+                        <h2>Corrective recommendations</h2>
+                        <div t-if="!data.top_findings.length" class="o_elaf_hc_state py-3">
+                            <div class="o_elaf_hc_state_title">No problem found</div>
+                            <div>All applicable checks of this area passed.</div>
+                        </div>
+                        <t t-foreach="data.top_findings.slice(0, 6)" t-as="f" t-key="f.id">
+                            <div class="o_elaf_hc_reco">
+                                <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+                                    <a href="#" class="fw-semibold" t-on-click.prevent="() => this.openFinding(f.id)" t-esc="f.name"/>
+                                    <span t-attf-class="o_elaf_hc_pill {{ f.severity }}"><t t-esc="f.severity_label"/> · <t t-esc="f.count"/></span>
+                                </div>
+                                <div class="small mt-1" t-esc="f.recommendation"/>
+                                <button class="btn btn-link btn-sm px-0" t-on-click="() => this.openRecords(f.id)">
+                                    <i class="fa fa-external-link me-1"/>View affected records
+                                </button>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div class="o_elaf_hc_card">
+                        <h2>Recent scans</h2>
+                        <div t-if="!data.recent_scans.length" class="text-muted">No scan yet.</div>
+                        <div class="o_elaf_hc_table_wrap" t-else="">
+                            <table class="o_elaf_hc_table">
+                                <thead><tr>
+                                    <th>Scan</th><th>Scope</th><th>Date</th>
+                                    <th class="num">Score</th><th class="num">Change</th><th class="num">Problems</th>
+                                </tr></thead>
+                                <tbody>
+                                    <t t-foreach="data.recent_scans" t-as="s" t-key="s.id">
+                                        <tr class="o_elaf_hc_clickable" t-on-click="() => this.openScan(s.id)">
+                                            <td t-esc="s.name"/>
+                                            <td t-esc="s.scope_label"/>
+                                            <td class="text-nowrap" t-esc="fmtDate(s.date)"/>
+                                            <td class="num">
+                                                <span t-if="s.state === 'failed'" class="o_elaf_hc_pill bad">Failed</span>
+                                                <span t-elif="s.score !== null" t-attf-class="o_elaf_hc_pill {{ s.band === 'healthy' ? 'ok' : (s.band === 'attention' ? 'warn' : 'bad') }}" t-esc="s.score"/>
+                                                <span t-else="">–</span>
+                                            </td>
+                                            <td class="num"><span dir="ltr" t-attf-class="o_elaf_hc_delta o_elaf_hc_ltr {{ deltaClass(s.delta) }}" t-esc="fmtDelta(s.delta)"/></td>
+                                            <td class="num" t-esc="s.problem_count"/>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="o_elaf_hc_card o_elaf_hc_usage" t-if="isLite and usage">
+                        <h2>Lite usage</h2>
+                        <t t-if="usage.caps_enabled">
+                            <div><strong t-esc="usage.used"/> of <strong t-esc="usage.limit"/> completed scans used</div>
+                            <div t-attf-class="o_elaf_hc_progress {{ usageClass }}" role="progressbar"
+                                 t-att-aria-valuenow="usage.used" aria-valuemin="0" t-att-aria-valuemax="usage.limit">
+                                <span t-attf-style="width: {{ usage.pct }}%"/>
+                            </div>
+                            <div class="text-muted small"><t t-esc="usage.remaining"/> remaining. A failed scan does not count. Deleting scans does not give scans back.</div>
+                        </t>
+                        <div t-else="" class="text-muted">Completed scans so far: <t t-esc="usage.used"/>.</div>
+                        <div class="text-muted small mt-2">Lite: one company, one audited business module<t t-if="data.bound_scope"> (<t t-esc="data.bound_scope_label"/>)</t>, 10 checks, manual scans. A scan that is refused, cancelled or fails is not counted.</div>
+                        <button class="btn btn-link px-0" t-on-click="openLiteVsPro">Lite vs Pro</button>
+                    </div>
+
+                    <div class="o_elaf_hc_card" t-if="isLite">
+                        <h2>Available in Pro</h2>
+                        <div class="o_elaf_hc_locked">
+                            <t t-foreach="lockedFeatures" t-as="feat" t-key="feat.key">
+                                <div class="o_elaf_hc_locked_item" role="button" t-on-click="() => this.lockedClick(feat)">
+                                    <span class="o_elaf_hc_pill locked me-1"><i class="fa fa-lock me-1"/>Pro</span>
+                                    <t t-esc="feat.label"/>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

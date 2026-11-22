@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="elaf_erp_health_lite.Gauge">
+        <svg class="o_elaf_hc_gauge" viewBox="0 0 240 140" role="img" dir="ltr"
+             t-att-aria-label="props.label">
+            <path class="track" d="M 20 120 A 100 100 0 0 1 220 120" pathLength="100"/>
+            <path t-if="props.available !== false" t-attf-class="value {{ props.band || 'attention' }}"
+                  d="M 20 120 A 100 100 0 0 1 220 120" pathLength="100"
+                  stroke-dasharray="100" t-att-stroke-dashoffset="offset"/>
+            <text class="score" x="120" y="105" text-anchor="middle" t-esc="scoreText"/>
+            <text class="label" x="120" y="132" text-anchor="middle" t-esc="props.label or ''"/>
+        </svg>
+    </t>
+</templates>

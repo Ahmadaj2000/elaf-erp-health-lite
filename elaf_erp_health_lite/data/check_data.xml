@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Sales -->
+    <record id="check_sale_stale_quotation" model="elaf.health.check">
+        <field name="sequence">10</field>
+        <field name="code">sale_stale_quotation</field>
+        <field name="name">Stale quotations</field>
+        <field name="scope">sales</field>
+        <field name="severity">medium</field>
+        <field name="weight">1</field>
+        <field name="count_threshold">10</field>
+        <field name="required_modules">sale</field>
+        <field name="res_model">sale.order</field>
+        <field name="param_key">stale_quote_days</field>
+        <field name="description">Quotations (draft or sent) whose order date is older than the configured number of days. Old open quotations hide lost deals and distort the sales pipeline.</field>
+        <field name="recommendation">Follow up each quotation with the customer: confirm it, update its validity, or cancel it so the pipeline reflects reality.</field>
+    </record>
+    <record id="check_sale_below_cost" model="elaf.health.check">
+        <field name="sequence">20</field>
+        <field name="code">sale_below_cost</field>
+        <field name="name">Sales order lines sold below cost</field>
+        <field name="scope">sales</field>
+        <field name="severity">high</field>
+        <field name="weight">2</field>
+        <field name="count_threshold">5</field>
+        <field name="required_modules">sale</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="exposure_formula">Sum of (product cost - net unit price) x ordered quantity, in company currency</field>
+        <field name="description">Lines of confirmed sales orders whose net unit price (after discount, before tax, converted to company currency) is lower than the product cost. Lines in a unit other than the product's unit are not compared.</field>
+        <field name="recommendation">Review pricelists, discounts and product costs. Correct the cost if it is wrong, or get approval for intentional below-cost sales.</field>
+    </record>
+
+    <!-- Purchase -->
+    <record id="check_purchase_late_receipt" model="elaf.health.check">
+        <field name="sequence">10</field>
+        <field name="code">purchase_late_receipt</field>
+        <field name="name">Purchase orders not received past their planned date</field>
+        <field name="scope">purchase</field>
+        <field name="severity">high</field>
+        <field name="weight">1.5</field>
+        <field name="count_threshold">5</field>
+        <field name="required_modules">purchase_stock</field>
+        <field name="res_model">purchase.order</field>
+        <field name="description">Confirmed purchase orders that are not fully received although their expected arrival date has passed.</field>
+        <field name="recommendation">Contact the vendors for a new delivery date, update the expected arrival, or receive the goods that already arrived.</field>
+    </record>
+    <record id="check_purchase_stale_rfq" model="elaf.health.check">
+        <field name="sequence">20</field>
+        <field name="code">purchase_stale_rfq</field>
+        <field name="name">Stale requests for quotation</field>
+        <field name="scope">purchase</field>
+        <field name="severity">low</field>
+        <field name="weight">1</field>
+        <field name="count_threshold">10</field>
+        <field name="required_modules">purchase</field>
+        <field name="res_model">purchase.order</field>
+        <field name="param_key">stale_rfq_days</field>
+        <field name="description">Requests for quotation (draft or sent) older than the configured number of days.</field>
+        <field name="recommendation">Confirm the RFQs that are still needed and cancel the others to keep purchasing work lists clean.</field>
+    </record>
+
+    <!-- Inventory -->
+    <record id="check_stock_negative_quant" model="elaf.health.check">
+        <field name="sequence">10</field>
+        <field name="code">stock_negative_quant</field>
+        <field name="name">Negative on-hand stock</field>
+        <field name="scope">inventory</field>
+        <field name="severity">critical</field>
+        <field name="weight">2</field>
+        <field name="count_threshold">5</field>
+        <field name="required_modules">stock</field>
+        <field name="res_model">stock.quant</field>
+        <field name="exposure_formula">Sum of |negative quantity| x product cost</field>
+        <field name="description">Stock quantities below zero in internal locations. Negative stock means goods were shipped without being recorded as received, which distorts valuation and availability.</field>
+        <field name="recommendation">Find the missing receipts or count errors, validate the pending receptions, then correct the quantities with an inventory adjustment.</field>
+    </record>
+    <record id="check_stock_dead_stock" model="elaf.health.check">
+        <field name="sequence">20</field>
+        <field name="code">stock_dead_stock</field>
+        <field name="name">Dead stock (no movement)</field>
+        <field name="scope">inventory</field>
+        <field name="severity">medium</field>
+        <field name="weight">1.5</field>
+        <field name="count_threshold">20</field>
+        <field name="required_modules">stock</field>
+        <field name="res_model">product.product</field>
+        <field name="param_key">dead_stock_days</field>
+        <field name="exposure_formula">Sum of on-hand quantity x product cost</field>
+        <field name="description">Products with stock on hand and no completed stock move during the configured number of days. Capital is tied up in goods that do not sell.</field>
+        <field name="recommendation">Plan promotions, return the goods to vendors, transfer them to locations with demand, or scrap obsolete items.</field>
+    </record>
+
+    <!-- Accounting -->
+    <record id="check_acc_overdue_customer_invoices" model="elaf.health.check">
+        <field name="sequence">10</field>
+        <field name="code">acc_overdue_customer_invoices</field>
+        <field name="name">Customer invoices overdue</field>
+        <field name="scope">accounting</field>
+        <field name="severity">critical</field>
+        <field name="weight">2</field>
+        <field name="count_threshold">10</field>
+        <field name="required_modules">account</field>
+        <field name="res_model">account.move</field>
+        <field name="param_key">overdue_days</field>
+        <field name="exposure_formula">Sum of the amounts still due (company currency)</field>
+        <field name="description">Posted customer invoices not (fully) paid whose due date passed more than the configured number of days ago.</field>
+        <field name="recommendation">Send payment reminders, call the customers with the largest amounts, and review credit terms for repeat late payers.</field>
+    </record>
+    <record id="check_acc_overdue_vendor_bills" model="elaf.health.check">
+        <field name="sequence">20</field>
+        <field name="code">acc_overdue_vendor_bills</field>
+        <field name="name">Vendor bills overdue</field>
+        <field name="scope">accounting</field>
+        <field name="severity">high</field>
+        <field name="weight">1.5</field>
+        <field name="count_threshold">10</field>
+        <field name="required_modules">account</field>
+        <field name="res_model">account.move</field>
+        <field name="exposure_formula">Sum of the amounts still due to vendors (company currency)</field>
+        <field name="description">Posted vendor bills not (fully) paid after their due date. Late payments damage supplier relations and can trigger penalties.</field>
+        <field name="recommendation">Schedule the payments, or register payments already made but not recorded in Odoo.</field>
+    </record>
+
+    <!-- Master data -->
+    <record id="check_md_duplicate_partners" model="elaf.health.check">
+        <field name="sequence">10</field>
+        <field name="code">md_duplicate_partners</field>
+        <field name="name">Duplicate partners</field>
+        <field name="scope">master_data</field>
+        <field name="severity">medium</field>
+        <field name="weight">1.5</field>
+        <field name="count_threshold">10</field>
+        <field name="res_model">res.partner</field>
+        <field name="description">Customers or vendors (without parent company) sharing the same name (ignoring case, spaces and punctuation) or the same Tax ID.</field>
+        <field name="recommendation">Merge the duplicates (select them in the contact list, Action > Merge) so that balances, history and credit control are not split.</field>
+    </record>
+    <record id="check_md_partner_no_contact" model="elaf.health.check">
+        <field name="sequence">20</field>
+        <field name="code">md_partner_no_contact</field>
+        <field name="name">Partners missing e-mail or phone</field>
+        <field name="scope">master_data</field>
+        <field name="severity">low</field>
+        <field name="weight">1</field>
+        <field name="count_threshold">25</field>
+        <field name="res_model">res.partner</field>
+        <field name="description">Customers or vendors (without parent company, not users) with no e-mail address or no phone number.</field>
+        <field name="recommendation">Complete the contact details so that invoices, reminders and purchase orders reach the right person.</field>
+    </record>
+</odoo>

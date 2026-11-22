@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_health_dashboard" model="ir.actions.client">
+        <field name="name">Health Dashboard</field>
+        <field name="tag">elaf_hc_dashboard</field>
+    </record>
+    <record id="action_health_lite_vs_pro" model="ir.actions.client">
+        <field name="name">Lite vs Pro</field>
+        <field name="tag">elaf_hc_lite_vs_pro</field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_health_root" name="ERP Health" sequence="85"
+              web_icon="elaf_erp_health_lite,static/description/icon.png"
+              groups="elaf_erp_health_lite.group_health_user"/>
+    <menuitem id="menu_health_dashboard" name="Dashboard" parent="menu_health_root"
+              action="action_health_dashboard" sequence="1"/>
+    <menuitem id="menu_health_scans" name="Scans" parent="menu_health_root"
+              action="action_health_scan" sequence="10"/>
+    <menuitem id="menu_health_findings" name="Findings" parent="menu_health_root"
+              action="action_health_finding" sequence="20"/>
+    <menuitem id="menu_health_config" name="Configuration" parent="menu_health_root" sequence="90"
+              groups="elaf_erp_health_lite.group_health_manager"/>
+    <menuitem id="menu_health_settings" name="Settings" parent="menu_health_config"
+              action="action_health_settings" sequence="1"/>
+    <menuitem id="menu_health_checks" name="Checks" parent="menu_health_config"
+              action="action_health_check" sequence="10"/>
+    <menuitem id="menu_health_usage" name="Lite Usage" parent="menu_health_config"
+              action="action_health_usage" sequence="80"/>
+    <menuitem id="menu_health_usage_log" name="Lite Usage Log" parent="menu_health_config"
+              action="action_health_usage_log" sequence="81"/>
+    <menuitem id="menu_health_lite_vs_pro" name="Lite vs Pro" parent="menu_health_root"
+              action="action_health_lite_vs_pro" sequence="95"/>
+</odoo>

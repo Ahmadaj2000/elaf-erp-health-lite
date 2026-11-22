@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_health_scan_list" model="ir.ui.view">
+        <field name="name">elaf.health.scan.list</field>
+        <field name="model">elaf.health.scan</field>
+        <field name="arch" type="xml">
+            <tree string="Health Scans" decoration-muted="state in ('draft', 'cancel')" decoration-danger="state == 'failed'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="scope"/>
+                <field name="score" invisible="not score_available"/>
+                <field name="score_available" column_invisible="1"/>
+                <field name="score_delta" string="Change" invisible="not previous_scan_id"
+                       decoration-success="score_delta &gt; 0" decoration-danger="score_delta &lt; 0"/>
+                <field name="previous_scan_id" column_invisible="1"/>
+                <field name="band" widget="badge"
+                       decoration-success="band == 'healthy'" decoration-warning="band == 'attention'"
+                       decoration-danger="band == 'at_risk'"/>
+                <field name="problem_count"/>
+                <field name="affected_count" optional="show"/>
+                <field name="hidden_count" optional="hide"/>
+                <field name="user_id" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                       decoration-danger="state == 'failed'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_health_scan_form" model="ir.ui.view">
+        <field name="name">elaf.health.scan.form</field>
+        <field name="model">elaf.health.scan</field>
+        <field name="arch" type="xml">
+            <form string="Health Scan">
+                <header>
+                    <button name="action_run" type="object" string="Run Scan" class="btn-primary"
+                            invisible="state in ('done', 'cancel')" groups="elaf_erp_health_lite.group_health_user"/>
+                    <button name="action_cancel" type="object" string="Cancel Scan"
+                            invisible="state not in ('draft', 'failed')" groups="elaf_erp_health_lite.group_health_user"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_problems" type="object" class="oe_stat_button"
+                                icon="fa-exclamation-triangle" invisible="state != 'done'">
+                            <field name="problem_count" widget="statinfo" string="Problems"/>
+                        </button>
+                        <button name="action_open_previous" type="object" class="oe_stat_button"
+                                icon="fa-history" invisible="not previous_scan_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Previous scan</span>
+                                <span class="o_stat_value"><field name="previous_scan_id" readonly="1" options="{'no_open': True}"/></span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="state != 'failed'">
+                        <strong>The scan failed and was not counted.</strong>
+                        <field name="error_message" nolabel="1"/>
+                    </div>
+                    <div class="alert alert-info" role="status" invisible="state != 'cancel'">
+                        This scan was cancelled. It was not run and was not counted.
+                    </div>
+                    <div class="alert alert-info" role="status" invisible="state != 'done' or score_available">
+                        None of the checks of this scan is visible to you with a result (they need access rights you do not have, or no check was applicable), so no Health Score is shown.
+                    </div>
+                    <div class="alert alert-warning" role="status" invisible="state != 'done' or not hidden_count">
+                        <field name="hidden_count" nolabel="1" class="fw-bold"/> check(s) of this scan need access rights you do not have. Their results are hidden from you and excluded from your Health Score and totals.
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="scope" readonly="state != 'draft'" required="1"/>
+                            <field name="company_id" readonly="state != 'draft'" groups="base.group_multi_company"/>
+                            <field name="date" invisible="state == 'draft'"/>
+                            <field name="user_id" invisible="state == 'draft'"/>
+                        </group>
+                        <group invisible="state != 'done' or not score_available">
+                            <field name="score_available" invisible="1"/>
+                            <field name="score" class="fw-bold"/>
+                            <field name="band" widget="badge"
+                                   decoration-success="band == 'healthy'" decoration-warning="band == 'attention'"
+                                   decoration-danger="band == 'at_risk'"/>
+                            <field name="score_delta" invisible="not previous_scan_id"
+                                   decoration-success="score_delta &gt; 0" decoration-danger="score_delta &lt; 0"/>
+                            <field name="check_count"/>
+                            <field name="pass_count"/>
+                            <field name="na_count"/>
+                            <field name="affected_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Results" name="results" invisible="state == 'draft'">
+                            <field name="finding_ids" nolabel="1">
+                                <tree create="false" delete="false" edit="false"
+                                      decoration-muted="result == 'na'" decoration-success="result == 'pass'">
+                                    <field name="label" string="Check"/>
+                                    <field name="severity" widget="badge"
+                                           decoration-danger="severity in ('critical', 'high')"
+                                           decoration-warning="severity == 'medium'" decoration-info="severity == 'low'"/>
+                                    <field name="result" widget="badge"
+                                           decoration-danger="result == 'fail'" decoration-success="result == 'pass'"/>
+                                    <field name="count"/>
+                                    <field name="na_reason" optional="show"/>
+                                    <field name="advice" string="Recommendation" optional="show"/>
+                                    <button name="action_view_records" type="object" string="View records"
+                                            icon="fa-external-link" invisible="result != 'fail'"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Methodology" name="methodology">
+                            <div class="p-2">
+                                <p><strong>Health Score (0-100)</strong> = 100 x (1 - total penalty / maximum penalty), computed over the applicable checks of the scan.</p>
+                                <ul>
+                                    <li>Penalty of a check with problems = weight x severity factor x min(1, affected records / saturation count).</li>
+                                    <li>Maximum penalty of a check = weight x severity factor.</li>
+                                    <li>Severity factor: Low 1, Medium 2, High 3, Critical 4.</li>
+                                    <li>Checks that are not applicable (required application not installed) are excluded.</li>
+                                    <li>The score and the totals are computed for each reader over the checks whose results the reader may see. Checks that need access rights the reader does not have (for example accounting) are excluded.</li>
+                                </ul>
+                                <p>Bands: <strong>Healthy</strong> 85 and above, <strong>Attention</strong> 65 to 84.9, <strong>At risk</strong> below 65.</p>
+                                <p>Each check only looks at the data of the scan's company.</p>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_health_scan_search" model="ir.ui.view">
+        <field name="name">elaf.health.scan.search</field>
+        <field name="model">elaf.health.scan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="scope"/>
+                <filter name="done" string="Completed" domain="[('state', '=', 'done')]"/>
+                <filter name="failed" string="Failed" domain="[('state', '=', 'failed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state', '=', 'cancel')]"/>
+                <separator/>
+                <filter name="at_risk" string="At risk" domain="[('band', '=', 'at_risk')]"/>
+                <group>
+                    <filter name="group_scope" string="Scope" context="{'group_by': 'scope'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_health_scan" model="ir.actions.act_window">
+        <field name="name">Health Scans</field>
+        <field name="res_model">elaf.health.scan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Run your first health scan</p>
+            <p>Choose a business area (Sales, Purchase, Inventory, Accounting or Master Data) and run a scan to get a Health Score and the list of problems found in your data.</p>
+        </field>
+    </record>
+</odoo>

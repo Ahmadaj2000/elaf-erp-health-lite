@@ -1,0 +1,2553 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* elaf_erp_health_lite
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-22 08:33+0000\n"
+"PO-Revision-Date: 2026-11-22 08:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "\"%s\" is part of ERP Health Check Pro."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_finding.py:0
+msgid "%(check)s: affected records"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"%(n)s check(s) were not run because they need access rights you do not have "
+"(for example accounting): %(checks)s. They are listed as not applicable and "
+"are excluded from the Health Score."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "%s Lite scan(s) left."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "(latest scan)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+", 10 checks, manual scans. A scan that is refused, cancelled or fails is not"
+" counted."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid ""
+". It is set by the first completed scan (or chosen once by a manager in "
+"Settings) and cannot be changed in Lite."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+". Scans of this company are part of ERP Health Check Pro. Existing scans "
+"stay viewable."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+". The Lite edition audits this one business module; it cannot be changed in "
+"Lite. Pro audits every module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+". The scan checks your real records and gives a Health Score with the "
+"problems found."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "10 checks."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "17 additional checks (27 in total)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "<span class=\"o_stat_text\">Previous scan</span>"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"<strong>Health Score (0-100)</strong> = 100 x (1 - total penalty / maximum "
+"penalty), computed over the applicable checks of the scan."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "<strong>The scan failed and was not counted.</strong>"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"A Lite scan always audits the whole module. %(n)s check(s) of %(scope)s need"
+" access rights you do not have, so nothing was run or counted. Missing "
+"access: %(details)s. Ask an administrator for these access rights, or ask a "
+"user who has them to run the scan."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "A completed scan cannot be cancelled."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__scope__accounting
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__scope__accounting
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__scope__accounting
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage__bound_scope__accounting
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__res_config_settings__elaf_hc_lite_scope__accounting
+msgid "Accounting"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__active
+msgid "Active"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__res_model
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__res_model
+msgid "Affected Model"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__res_ids
+msgid "Affected Record IDs"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__count
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__affected_count
+msgid "Affected Records"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Affected records"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid ""
+"All 3 Lite scans are used. Your scans and findings stay available. ERP "
+"Health Check Pro runs unlimited scans."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid ""
+"All Lite limits are lifted; your Lite scans, findings and settings were "
+"kept."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "All Lite scans are used: opens the Lite vs Pro page"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "All applicable checks of this area passed."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "All modules"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_list
+msgid "Applicable"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__is_applicable
+msgid "Applicable on this database"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_form
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_search
+msgid "Archived"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Areas not audited"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__at
+msgid "At"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__band__at_risk
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_search
+msgid "At risk"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__band__attention
+msgid "Attention"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__bound_scope
+msgid "Audited Module"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Audited business modules"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_lite_scope
+msgid "Audited module (Lite)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Audited module saved. Lite scans now audit this module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Audited module:"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Available in Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"Bands: <strong>Healthy</strong> 85 and above, <strong>Attention</strong> 65 "
+"to 84.9, <strong>At risk</strong> below 65."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+"Bar length: affected records per severity. Click a row to open the findings."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__bound_company_id
+msgid "Bound Company"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Built-in checks"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__scope
+msgid "Business area audited by this scan."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Business areas per scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_usage__bound_scope
+msgid ""
+"Business module audited by the Lite edition: chosen by a manager in Settings"
+" or set by the first completed scan. It cannot be changed in Lite."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Cancel Scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__state__cancel
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_list
+msgid "Change"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__check_id
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_form
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_list
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Check"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__check_code
+msgid "Check Code"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__about
+msgid "Check Description"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__name
+msgid "Check Name"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__label
+msgid "Check Title"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Check thresholds"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.actions.act_window,name:elaf_erp_health_lite.action_health_check
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_checks
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_list
+msgid "Checks"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__pass_count
+msgid "Checks Passed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__check_count
+msgid "Checks Run"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.actions.act_window,help:elaf_erp_health_lite.action_health_check
+msgid ""
+"Checks are installed with the module. Archived checks are hidden by default."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__hidden_count
+msgid ""
+"Checks of this scan whose results you may not see (they need access rights "
+"you do not have). They are excluded from your score and totals."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Checks passed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"Checks that are not applicable (required application not installed) are "
+"excluded."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.actions.act_window,help:elaf_erp_health_lite.action_health_scan
+msgid ""
+"Choose a business area (Sales, Purchase, Inventory, Accounting or Master "
+"Data) and run a scan to get a Health Score and the list of problems found in"
+" your data."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Choose a business area above and click"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Choose your audited module"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__code
+msgid "Code"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_check__required_modules
+msgid ""
+"Comma-separated technical names of the Odoo modules this check needs. When "
+"one of them is not installed, the check is reported as not applicable."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Companies"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__company_id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__company_id
+msgid "Company"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Compare Lite and Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_md_partner_no_contact
+msgid ""
+"Complete the contact details so that invoices, reminders and purchase orders"
+" reach the right person."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__state__done
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_search
+msgid "Completed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Completed scans"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Completed scans so far:"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__score
+msgid ""
+"Computed for you over the checks whose results you may see. Checks that need"
+" access rights you do not have are excluded."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_config
+msgid "Configuration"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:res.groups,comment:elaf_erp_health_lite.group_health_manager
+msgid "Configures checks and thresholds, and can delete scans."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_purchase_stale_rfq
+msgid ""
+"Confirm the RFQs that are still needed and cancel the others to keep "
+"purchasing work lists clean."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_purchase_late_receipt
+msgid ""
+"Confirmed purchase orders that are not fully received although their "
+"expected arrival date has passed."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage_log__event__consumed
+msgid "Consumed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_purchase_late_receipt
+msgid ""
+"Contact the vendors for a new delivery date, update the expected arrival, or"
+" receive the goods that already arrived."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__advice
+msgid "Corrective Action"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Corrective recommendations"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__create_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__create_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__create_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__create_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__create_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__create_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__create_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__create_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__severity__critical
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__severity__critical
+msgid "Critical"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+msgid "Critical / High"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Cross-module & security audits (all areas in one scan)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid ""
+"Cross-module checks (delivered not invoiced, received not billed, price "
+"increases, valuation vs accounting, credit limits)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__currency_id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_acc_overdue_customer_invoices
+msgid "Customer invoices overdue"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_overdue_days
+msgid "Customer invoices overdue by more than (days)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid ""
+"Customer invoices overdue by more than this number of days are reported."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_md_duplicate_partners
+msgid ""
+"Customers or vendors (without parent company) sharing the same name "
+"(ignoring case, spaces and punctuation) or the same Tax ID."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_md_partner_no_contact
+msgid ""
+"Customers or vendors (without parent company, not users) with no e-mail "
+"address or no phone number."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_dashboard
+msgid "Dashboard"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Date"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Dead stock"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_stock_dead_stock
+msgid "Dead stock (no movement)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_dead_stock_days
+msgid "Dead stock: no movement for (days)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage_log__event__denied
+msgid "Denied"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__description
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__description
+msgid "Description"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__detail
+msgid "Detail"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Discover Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Discover hidden risks before they become costly problems."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_edition__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_users__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_md_duplicate_partners
+msgid "Duplicate partners"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__duration
+msgid "Duration (s)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_root
+msgid "ERP Health"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.module.category,name:elaf_erp_health_lite.module_category_erp_health
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "ERP Health Check"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_elaf_health_check
+msgid "ERP Health Check Definition"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_elaf_health_edition
+msgid "ERP Health Check Edition"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_elaf_health_usage
+msgid "ERP Health Check Lite Usage Counter"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_elaf_health_usage_log
+msgid "ERP Health Check Lite Usage Log"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid ""
+"ERP Health Check Lite audits one business module: %(module)s. It was chosen "
+"by the first completed scan (or in Settings) and cannot be changed in Lite. "
+"Nothing was run or counted. ERP Health Check Pro audits every module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "ERP Health Check Pro audits every module: there is nothing to choose."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_elaf_health_finding
+msgid "ERP Health Check Result"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "ERP Health Check: Lite vs Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_elaf_health_scan
+msgid "ERP Health Scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_finding__exposure
+msgid "ESTIMATE in company currency. See the formula of the check."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__total_exposure
+msgid ""
+"ESTIMATE. Sum of the estimated exposure of the findings you can see; each "
+"check states its own formula. Findings of checks that need access rights you"
+" do not have (for example accounting) are not included."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Each check only looks at the data of the scan's company."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_is_pro
+msgid "Elaf Hc Is Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_lite_scope_locked
+msgid "Elaf Hc Lite Scope Locked"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__error_message
+msgid "Error Message"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__exposure
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__total_exposure
+msgid "Estimated Exposure"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__event
+msgid "Event"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__exposure_formula
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__exposure_formula
+msgid "Exposure Formula"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__state__failed
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_search
+msgid "Failed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Feature"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Feature comparison"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Financial exposure dashboard"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Financial exposure dashboard (estimates)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_stock_negative_quant
+msgid ""
+"Find the missing receipts or count errors, validate the pending receptions, "
+"then correct the quantities with an inventory adjustment."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_form
+msgid "Finding"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: model:ir.actions.act_window,name:elaf_erp_health_lite.action_health_finding
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_findings
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_list
+msgid "Findings"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Findings by severity"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid ""
+"First scan done. Fix a problem, then run a second scan of the same area to "
+"measure the improvement."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "First scan of this area: no comparison yet."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_sale_stale_quotation
+msgid ""
+"Follow up each quotation with the customer: confirm it, update its validity,"
+" or cancel it so the pipeline reflects reality."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__formula_label
+msgid "Formula"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.actions.client,name:elaf_erp_health_lite.action_health_dashboard
+msgid "Health Dashboard"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Health Scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: model:ir.actions.act_window,name:elaf_erp_health_lite.action_health_scan
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_list
+msgid "Health Scans"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__score
+msgid "Health Score"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__score_delta
+msgid "Health Score of this scan minus the previous scan of the same scope."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Health Score, findings, recommendations, affected records"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__band__healthy
+msgid "Healthy"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__hidden_count
+msgid "Hidden Checks"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__severity__high
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__severity__high
+msgid "High"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_check__exposure_formula
+msgid ""
+"How the estimated financial exposure of this check is computed. Exposure "
+"figures are estimates."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "How upgrading works"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_edition__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__id
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__request_key
+msgid "Idempotency key of the dashboard request that created the scan."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__message_has_error
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Included"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid ""
+"Install the Pro module (ERP Health Check). All your data, settings and "
+"history are kept, the limits disappear and the Pro features appear in the "
+"same menus."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__scope__inventory
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__scope__inventory
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__scope__inventory
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage__bound_scope__inventory
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__res_config_settings__elaf_hc_lite_scope__inventory
+msgid "Inventory"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__key
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__key
+msgid "Key"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__write_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__write_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__write_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__write_uid
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__write_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__write_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__write_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__write_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__last_used_at
+msgid "Last Used"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__usage_limit
+msgid "Limit"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_sale_below_cost
+msgid ""
+"Lines of confirmed sales orders whose net unit price (after discount, before"
+" tax, converted to company currency) is lower than the product cost. Lines "
+"in a unit other than the product's unit are not compared."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Lite"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Lite Edition"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.actions.act_window,name:elaf_erp_health_lite.action_health_usage
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_usage
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_usage_list
+msgid "Lite Usage"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.actions.act_window,name:elaf_erp_health_lite.action_health_usage_log
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_usage_log
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_usage_log_list
+msgid "Lite Usage Log"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Lite edition"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Lite edition limits"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid ""
+"Lite scan allowance used (%(used)s/%(limit)s). All your scans and findings "
+"remain available. ERP Health Check Pro runs unlimited scans."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Lite scan(s) left."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+"Lite scans. All scans, findings and affected records remain available. Pro "
+"runs unlimited, scheduled and cross-module scans."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Lite usage"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.actions.client,name:elaf_erp_health_lite.action_health_lite_vs_pro
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_lite_vs_pro
+msgid "Lite vs Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Lite: one company, one audited business module"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Loading health data…"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Loading…"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__severity__low
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__severity__low
+msgid "Low"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:res.groups,name:elaf_erp_health_lite.group_health_manager
+msgid "Manager"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Manual scans only."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__scope__master_data
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__scope__master_data
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__scope__master_data
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage__bound_scope__master_data
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__res_config_settings__elaf_hc_lite_scope__master_data
+msgid "Master Data"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__max_penalty
+msgid "Max Penalty"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Maximum penalty of a check = weight x severity factor."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__severity__medium
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__severity__medium
+msgid "Medium"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_md_duplicate_partners
+msgid ""
+"Merge the duplicates (select them in the contact list, Action > Merge) so "
+"that balances, history and credit control are not split."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Methodology"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__missing_modules
+msgid "Missing Modules"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid "Model %(model)s is not available."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Multi-company"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__name
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__name
+msgid "Name"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_stock_negative_quant
+msgid "Negative on-hand stock"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"No check of %(scope)s can run for you, so nothing was run or counted. "
+"Missing access: %(details)s. Ask an administrator for these access rights, "
+"or ask a user who has them to run the scan."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"No check of %(scope)s is applicable on this database, so nothing was run or "
+"counted: %(details)s."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+"No check result of this scan is visible to you (no applicable check, or "
+"checks that need access rights you do not have)."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.actions.act_window,help:elaf_erp_health_lite.action_health_check
+msgid "No checks"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.actions.act_window,help:elaf_erp_health_lite.action_health_finding
+msgid "No findings yet"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid "No implementation available in this edition."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "No problem found"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "No scan yet"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "No scan yet."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"None of the checks of this scan is visible to you with a result (they need "
+"access rights you do not have, or no check was applicable), so no Health "
+"Score is shown."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__na_count
+msgid "Not Applicable"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__result__na
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+msgid "Not applicable"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Not included"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_check__count_threshold
+msgid ""
+"Number of affected records at which this check applies its full penalty to "
+"the Health Score (penalty grows linearly up to this count)."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__problem_count
+msgid "Number of checks that found at least one problem."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "One"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "One audited business module"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "One company"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.constraint,message:elaf_erp_health_lite.constraint_elaf_health_usage_key_uniq
+msgid "One usage counter per key."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "One, fixed: chosen once, cannot be changed in Lite"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "One, or all areas in one cross-module scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "Only ERP Health Check managers can choose the audited module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Only managers can choose it, and only once"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Overdue customer invoices"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "PDF audit report"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_md_partner_no_contact
+msgid "Partners missing e-mail or phone"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__result__pass
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+msgid "Passed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__penalty
+msgid "Penalty"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"Penalty of a check with problems = weight x severity factor x min(1, "
+"affected records / saturation count)."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Per-check thresholds"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_stock_dead_stock
+msgid ""
+"Plan promotions, return the goods to vendors, transfer them to locations "
+"with demand, or scrap obsolete items."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_acc_overdue_customer_invoices
+msgid ""
+"Posted customer invoices not (fully) paid whose due date passed more than "
+"the configured number of days ago."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_acc_overdue_vendor_bills
+msgid ""
+"Posted vendor bills not (fully) paid after their due date. Late payments "
+"damage supplier relations and can trigger penalties."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__previous_scan_id
+msgid "Previous Scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__previous_scan_id
+msgid "Previous completed scan of the same scope and company."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Pro"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Pro Edition"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Pro edition is active."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Pro feature"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__result__fail
+msgid "Problem found"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__problem_count
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Problems"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Problems detected"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Problems found"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid ""
+"Products in stock without any completed move during this number of days are "
+"reported."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_stock_dead_stock
+msgid ""
+"Products with stock on hand and no completed stock move during the "
+"configured number of days. Capital is tied up in goods that do not sell."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__scope__purchase
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__scope__purchase
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__scope__purchase
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage__bound_scope__purchase
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__res_config_settings__elaf_hc_lite_scope__purchase
+msgid "Purchase"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_purchase_late_receipt
+msgid "Purchase orders not received past their planned date"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_sale_stale_quotation
+msgid ""
+"Quotations (draft or sent) whose order date is older than the configured "
+"number of days. Old open quotations hide lost deals and distort the sales "
+"pipeline."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Quotations older than this number of days are reported."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "RFQs older than this number of days are reported."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Recent scans"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__recommendation
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__recommendation
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_form
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_form
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Recommendation"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__res_model
+msgid "Record Model"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__res_model_name
+msgid "Record Type"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Records still affected"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Refresh"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_check__weight
+msgid "Relative importance of the check in the Health Score."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__request_key
+msgid "Request Key"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_purchase_stale_rfq
+msgid ""
+"Requests for quotation (draft or sent) older than the configured number of "
+"days."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__required_modules
+msgid "Required Modules"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid "Requires accounting access"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid "Requires additional access rights"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid "Requires read access to %(model)s"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid "Requires the module(s): %(mods)s"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__result
+msgid "Result"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__finding_ids
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Results"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Retry"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_sale_below_cost
+msgid ""
+"Review pricelists, discounts and product costs. Correct the cost if it is "
+"wrong, or get approval for intentional below-cost sales."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Run Scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.actions.act_window,help:elaf_erp_health_lite.action_health_finding
+msgid "Run a health scan from the dashboard to detect problems in your data."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Run a health scan of the selected area"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__user_id
+msgid "Run by"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Run scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Run scan (see Pro)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.actions.act_window,help:elaf_erp_health_lite.action_health_scan
+msgid "Run your first health scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:res.groups,comment:elaf_erp_health_lite.group_health_user
+msgid "Runs health scans and reviews scans, findings and affected records."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_check__scope__sales
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_finding__scope__sales
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_scan__scope__sales
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__elaf_health_usage__bound_scope__sales
+#: model:ir.model.fields.selection,name:elaf_erp_health_lite.selection__res_config_settings__elaf_hc_lite_scope__sales
+msgid "Sales"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_sale_below_cost
+msgid "Sales order lines sold below cost"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__count_threshold
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__count_threshold
+msgid "Saturation Count"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__scan_id
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+msgid "Scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__scan_date
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__date
+msgid "Scan Date"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Scan completed."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Scan completed. Health Score: %s"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"Scan completed. Open the results: the Health Score and totals are computed "
+"over the checks you may see."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "Scan results are computed by the scan engine."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Scanning…"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_scans
+msgid "Scans"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "Scans completed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_acc_overdue_vendor_bills
+msgid ""
+"Schedule the payments, or register payments already made but not recorded in"
+" Odoo."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Scheduled audits with alerts"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Scheduled audits with alerts when the score drops"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__scope
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__scope
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__scope
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_search
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_search
+msgid "Scope"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Score"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__score_available
+msgid "Score Available"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__score_delta
+msgid "Score Change"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Score change versus the previous scan"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "Score trend & scan comparison"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Score trend and scan comparison (new / resolved / persisting)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid ""
+"Security and control diagnostics (admin rights, inactive users, shared "
+"logins, segregation of duties)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "Select a valid business module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "Select a valid scope."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "Select the scope (business area) to scan."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,recommendation:elaf_erp_health_lite.check_acc_overdue_customer_invoices
+msgid ""
+"Send payment reminders, call the customers with the largest amounts, and "
+"review credit terms for repeat late payers."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "Set as audited module"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.actions.act_window,name:elaf_erp_health_lite.action_health_settings
+#: model:ir.ui.menu,name:elaf_erp_health_lite.menu_health_settings
+msgid "Settings"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_check__param_key
+msgid "Settings parameter (in days or %) used by this check, if any."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__severity
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__severity
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_search
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_search
+msgid "Severity"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__severity_rank
+msgid "Severity Rank"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "Severity factor: Low 1, Medium 2, High 3, Critical 4."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_stale_rfq_days
+msgid "Stale RFQ age (days)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_res_config_settings__elaf_hc_stale_quote_days
+msgid "Stale quotation age (days)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_sale_stale_quotation
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Stale quotations"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_purchase_stale_rfq
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid "Stale requests for quotation"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__state
+msgid "State"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__band
+msgid "Status"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,description:elaf_erp_health_lite.check_stock_negative_quant
+msgid ""
+"Stock quantities below zero in internal locations. Negative stock means "
+"goods were shipped without being recorded as received, which distorts "
+"valuation and availability."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,exposure_formula:elaf_erp_health_lite.check_sale_below_cost
+msgid ""
+"Sum of (product cost - net unit price) x ordered quantity, in company "
+"currency"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,exposure_formula:elaf_erp_health_lite.check_stock_dead_stock
+msgid "Sum of on-hand quantity x product cost"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,exposure_formula:elaf_erp_health_lite.check_acc_overdue_customer_invoices
+msgid "Sum of the amounts still due (company currency)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,exposure_formula:elaf_erp_health_lite.check_acc_overdue_vendor_bills
+msgid "Sum of the amounts still due to vendors (company currency)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,exposure_formula:elaf_erp_health_lite.check_stock_negative_quant
+msgid "Sum of |negative quantity| x product cost"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_check__code
+msgid "Technical code linking this check to its Python implementation."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid ""
+"The \"Discover Pro\" button opens the Odoo Apps page of ERP Health Check "
+"Pro. Questions:"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.res_config_settings_view_form
+msgid ""
+"The Lite edition audits one business module. Once chosen (here or by the "
+"first completed scan) it cannot be changed in Lite. ERP Health Check Pro "
+"audits every module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_res_config_settings__elaf_hc_lite_scope
+msgid ""
+"The Lite edition audits one business module. Once chosen here, or set by the"
+" first completed scan, it cannot be changed in Lite. Pro audits every "
+"module."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+"The Lite edition audits one business module. Your first completed scan sets "
+"it (a manager can also choose it first), and it cannot be changed in Lite "
+"afterwards."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid ""
+"The Lite edition scans one business area at a time (Sales, Purchase, "
+"Inventory, Accounting or Master Data). Cross-module and security scans are "
+"part of ERP Health Check Pro."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "The Lite edition works with one company:"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid ""
+"The Lite edition works with one company: %(company)s. ERP Health Check Pro "
+"supports multi-company audits."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.constraint,message:elaf_erp_health_lite.constraint_elaf_health_check_code_uniq
+msgid "The check code must be unique."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_check.py:0
+msgid ""
+"The code, scope, model and threshold parameter of a check are defined by the"
+" application and cannot be changed."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "The dashboard could not be loaded"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "The page could not be loaded"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_finding.py:0
+msgid ""
+"The records of this finding belong to an application that is not installed "
+"anymore."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid "The scan failed and was not counted: %s"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "The scope of a completed scan cannot be changed."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"The score and the totals are computed for each reader over the checks whose "
+"results the reader may see. Checks that need access rights the reader does "
+"not have (for example accounting) are excluded."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "The usage log is append-only and managed by the application."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "The usage log is append-only."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "There is no previous scan of this scope."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_finding.py:0
+msgid "This result has no affected records."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"This scan request is already being processed. Refresh the dashboard in a "
+"moment."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.constraint,message:elaf_erp_health_lite.constraint_elaf_health_scan_request_key_uniq
+msgid "This scan request was already received."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid ""
+"This scan was cancelled and nothing was counted. Create a new scan to audit "
+"again."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "This scan was cancelled. It was not run and was not counted."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__param_key
+msgid "Threshold Parameter"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Threshold settings (days)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_list
+msgid "Total"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Unknown error"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Unlimited"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "Unsupported search on the Health Score status."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid ""
+"Up to 3 completed scans in total. A scan that is refused (for example "
+"missing access rights), cancelled or fails does not count. Scans and "
+"findings always stay viewable."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/lite_vs_pro.js:0
+msgid "Up to 3 in total"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "Usage counters are managed by the application only."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/usage.py:0
+msgid "Usage counters cannot be deleted."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage__used
+msgid "Used"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model,name:elaf_erp_health_lite.model_res_users
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_usage_log__user_id
+#: model:res.groups,name:elaf_erp_health_lite.group_health_user
+msgid "User"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:elaf.health.check,name:elaf_erp_health_lite.check_acc_overdue_vendor_bills
+msgid "Vendor bills overdue"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_form
+msgid "View affected records"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_list
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid "View records"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_scan__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_scan__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_check__weight
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__weight
+msgid "Weight"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_check_form
+msgid "What it detects"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_finding_form
+msgid "What this check detects"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "What you have today and what Pro adds."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,field_description:elaf_erp_health_lite.field_elaf_health_finding__na_reason
+msgid "Why not applicable"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "You have used"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/js/dashboard.js:0
+msgid ""
+"You have used all %s Lite scans. Everything stays viewable; Pro adds "
+"unlimited and scheduled scans."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "You need the ERP Health Check User group to run scans."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "across all your scans"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "applicable checks without problems"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+"check(s) hidden: they need access rights you do not have and are not in your"
+" score."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model_terms:ir.ui.view,arch_db:elaf_erp_health_lite.view_health_scan_form
+msgid ""
+"check(s) of this scan need access rights you do not have. Their results are "
+"hidden from you and excluded from your Health Score and totals."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "checks with at least one problem"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "completed scans used"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "for this company"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "in the latest scan of each area ("
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-python
+#: code:addons/elaf_erp_health_lite/models/health_scan.py:0
+msgid "no active check"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "of"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/lite_vs_pro.xml:0
+msgid "open problems)"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "records to correct"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid ""
+"remaining. A failed scan does not count. Deleting scans does not give scans "
+"back."
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "required app not installed or access needed"
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#. odoo-javascript
+#: code:addons/elaf_erp_health_lite/static/src/xml/dashboard.xml:0
+msgid "vs previous scan ("
+msgstr ""
+
+#. module: elaf_erp_health_lite
+#: model:ir.model.fields,help:elaf_erp_health_lite.field_elaf_health_finding__penalty
+msgid "weight x severity factor x min(1, count / saturation count)"
+msgstr ""

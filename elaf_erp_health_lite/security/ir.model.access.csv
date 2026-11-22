@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_health_check_user,elaf.health.check user,model_elaf_health_check,group_health_user,1,0,0,0
+access_health_check_manager,elaf.health.check manager,model_elaf_health_check,group_health_manager,1,1,0,0
+access_health_scan_user,elaf.health.scan user,model_elaf_health_scan,group_health_user,1,1,1,0
+access_health_scan_manager,elaf.health.scan manager,model_elaf_health_scan,group_health_manager,1,1,1,1
+access_health_finding_user,elaf.health.finding user,model_elaf_health_finding,group_health_user,1,0,0,0
+access_health_usage_user,elaf.health.usage user,model_elaf_health_usage,group_health_user,1,0,0,0
+access_health_usage_log_user,elaf.health.usage.log user,model_elaf_health_usage_log,group_health_user,1,0,0,0

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="elaf_erp_health_lite.LiteVsPro">
+        <div class="o_action o_elaf_hc_dashboard">
+            <div class="o_elaf_hc_header">
+                <div>
+                    <h1>ERP Health Check: Lite vs Pro</h1>
+                    <p class="o_elaf_hc_subtitle">What you have today and what Pro adds.</p>
+                </div>
+                <div class="o_elaf_hc_filters">
+                    <button class="btn btn-light" t-on-click="openDashboard"><i class="fa fa-arrow-left me-1"/>Dashboard</button>
+                    <button t-if="state.data and state.data.edition === 'lite'" class="btn btn-elaf" t-on-click="discoverPro">
+                        <i class="fa fa-external-link me-1"/>Discover Pro
+                    </button>
+                </div>
+            </div>
+            <div t-if="state.loading" class="o_elaf_hc_state">
+                <i class="fa fa-spinner fa-spin fa-2x mb-2"/><div class="o_elaf_hc_state_title">Loading…</div>
+            </div>
+            <div t-elif="state.error" class="o_elaf_hc_state error">
+                <div class="o_elaf_hc_state_title">The page could not be loaded</div><div t-esc="state.error"/>
+            </div>
+            <t t-elif="state.data">
+                <t t-set="d" t-value="state.data"/>
+                <div t-if="d.edition === 'pro'" class="o_elaf_hc_banner" role="status">
+                    <div><strong>Pro edition is active.</strong> All Lite limits are lifted; your Lite scans, findings and settings were kept.</div>
+                </div>
+                <div class="o_elaf_hc_kpis">
+                    <div class="o_elaf_hc_kpi">
+                        <div class="o_elaf_hc_kpi_label">Scans completed</div>
+                        <div class="o_elaf_hc_kpi_value"><t t-esc="d.value.scans"/><t t-if="d.usage and d.usage.caps_enabled"> / <t t-esc="d.usage.limit"/></t></div>
+                        <div class="o_elaf_hc_kpi_hint">for this company</div>
+                    </div>
+                    <div class="o_elaf_hc_kpi is-bad">
+                        <div class="o_elaf_hc_kpi_label">Problems detected</div>
+                        <div class="o_elaf_hc_kpi_value" t-esc="d.value.problems_found"/>
+                        <div class="o_elaf_hc_kpi_hint">across all your scans</div>
+                    </div>
+                    <div class="o_elaf_hc_kpi is-warn">
+                        <div class="o_elaf_hc_kpi_label">Records still affected</div>
+                        <div class="o_elaf_hc_kpi_value" t-esc="d.value.open_records"/>
+                        <div class="o_elaf_hc_kpi_hint">in the latest scan of each area (<t t-esc="d.value.open_problems"/> open problems)</div>
+                    </div>
+                    <div class="o_elaf_hc_kpi">
+                        <div class="o_elaf_hc_kpi_label">Areas not audited</div>
+                        <div class="o_elaf_hc_kpi_value" t-esc="d.value.not_audited_scopes.length"/>
+                        <div class="o_elaf_hc_kpi_hint" t-esc="d.value.not_audited_scopes.join(', ') or '—'"/>
+                    </div>
+                </div>
+                <div class="o_elaf_hc_grid">
+                    <div class="o_elaf_hc_card">
+                        <h2>Feature comparison</h2>
+                        <div class="o_elaf_hc_table_wrap">
+                            <table class="o_elaf_hc_table o_elaf_hc_compare_table">
+                                <thead><tr><th>Feature</th><th class="c">Lite</th><th class="c">Pro</th></tr></thead>
+                                <tbody>
+                                    <t t-foreach="rows" t-as="r" t-key="r_index">
+                                        <tr>
+                                            <td t-esc="r.label"/>
+                                            <t t-foreach="[r.lite, r.pro]" t-as="v" t-key="v_index">
+                                                <td t-if="v === true" class="yes" aria-label="Included">✓</td>
+                                                <td t-elif="v === false" class="no" aria-label="Not included">—</td>
+                                                <td t-else="" class="text-center" t-esc="v"/>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="o_elaf_hc_card">
+                        <h2>Lite edition limits</h2>
+                        <ul>
+                            <li>One company<t t-if="d.usage and d.usage.bound_company">: <strong t-esc="d.usage.bound_company"/></t>.</li>
+                            <li>One audited business module<t t-if="d.bound_scope_label">: <strong t-esc="d.bound_scope_label"/></t>. It is set by the first completed scan (or chosen once by a manager in Settings) and cannot be changed in Lite.</li>
+                            <li>Manual scans only.</li>
+                            <li>10 checks.</li>
+                            <li>Up to 3 completed scans in total. A scan that is refused (for example missing access rights), cancelled or fails does not count. Scans and findings always stay viewable.</li>
+                        </ul>
+                        <t t-if="d.usage and d.usage.caps_enabled">
+                            <div class="o_elaf_hc_usage">
+                                <div><strong t-esc="d.usage.used"/> of <strong t-esc="d.usage.limit"/> completed scans used</div>
+                                <div t-attf-class="o_elaf_hc_progress {{ d.usage.exhausted ? 'bad' : (d.usage.pct >= 80 ? 'warn' : '') }}">
+                                    <span t-attf-style="width: {{ d.usage.pct }}%"/>
+                                </div>
+                            </div>
+                        </t>
+                        <h2 class="mt-3">How upgrading works</h2>
+                        <p>Install the Pro module (ERP Health Check). All your data, settings and history are kept, the limits disappear and the Pro features appear in the same menus.</p>
+                        <p class="text-muted small">The "Discover Pro" button opens the Odoo Apps page of ERP Health Check Pro. Questions: <a t-att-href="'mailto:' + d.support_email" t-esc="d.support_email"/></p>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

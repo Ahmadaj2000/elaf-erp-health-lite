@@ -1,0 +1,189 @@
+// ELAF design kit v1, vendored for ERP Health Check (prefix o_elaf_hc_, accent #0ca678).
+// Works on Odoo 17/18/19 backends (Bootstrap 5 present). RTL-safe (logical props).
+
+$elaf-ink: #1f2933;
+$elaf-muted: #52606d;
+$elaf-line: #d9e2ec;
+$elaf-surface: #ffffff;
+$elaf-canvas: #f5f7fa;
+$elaf-ok: #2b8a3e;
+$elaf-warn: #e67700;
+$elaf-bad: #c92a2a;
+$elaf-info: #1971c2;
+// Product accent — set per product:
+// approval #3b5bdb · health #0ca678 · cashflow #1098ad · rebalance #f08c00
+$elaf-accent: #0ca678 !default;
+
+.o_elaf_hc_dashboard {
+    background: $elaf-canvas;
+    color: $elaf-ink;
+    min-height: 100%;
+    overflow: auto;
+    padding: 24px;
+    font-size: 14px;
+
+    .o_elaf_hc_header {
+        display: flex; flex-wrap: wrap; gap: 12px;
+        align-items: center; justify-content: space-between;
+        margin-block-end: 20px;
+        h1 { font-size: 22px; font-weight: 600; margin: 0; }
+        .o_elaf_hc_subtitle { color: $elaf-muted; margin: 2px 0 0; }
+        border-inline-start: 4px solid $elaf-accent;
+        padding-inline-start: 12px;
+    }
+    .o_elaf_hc_filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+    .o_elaf_hc_kpis {
+        display: grid; gap: 16px; margin-block-end: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .o_elaf_hc_kpi {
+        background: $elaf-surface; border: 1px solid $elaf-line; border-radius: 10px;
+        padding: 16px; cursor: pointer; transition: box-shadow .15s, transform .15s;
+        &:hover { box-shadow: 0 4px 14px rgba(31,41,51,.08); transform: translateY(-1px); }
+        .o_elaf_hc_kpi_label { color: $elaf-muted; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+        .o_elaf_hc_kpi_value { font-size: 26px; font-weight: 700; margin-top: 6px; line-height: 1.1; }
+        .o_elaf_hc_kpi_hint { color: $elaf-muted; font-size: 12px; margin-top: 4px; }
+        &.is-ok .o_elaf_hc_kpi_value { color: $elaf-ok; }
+        &.is-warn .o_elaf_hc_kpi_value { color: $elaf-warn; }
+        &.is-bad .o_elaf_hc_kpi_value { color: $elaf-bad; }
+    }
+
+    .o_elaf_hc_grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+    .o_elaf_hc_card {
+        background: $elaf-surface; border: 1px solid $elaf-line; border-radius: 10px;
+        padding: 16px; min-width: 0;
+        h2 { font-size: 15px; font-weight: 600; margin: 0 0 12px; }
+    }
+    .o_elaf_hc_table_wrap { overflow-x: auto; }
+    .o_elaf_hc_table {
+        width: 100%; border-collapse: collapse;
+        th { color: $elaf-muted; font-weight: 600; font-size: 12px; text-align: start; border-bottom: 1px solid $elaf-line; padding: 6px 8px; }
+        td { border-bottom: 1px solid lighten($elaf-line, 4%); padding: 8px; text-align: start; }
+        td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
+        tr.o_elaf_hc_clickable { cursor: pointer; &:hover td { background: $elaf-canvas; } }
+    }
+    .o_elaf_hc_pill {
+        display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 600;
+        background: lighten($elaf-info, 45%); color: $elaf-info;
+        &.ok { background: lighten($elaf-ok, 50%); color: $elaf-ok; }
+        &.warn { background: lighten($elaf-warn, 45%); color: darken($elaf-warn, 8%); }
+        &.bad { background: lighten($elaf-bad, 45%); color: $elaf-bad; }
+    }
+    .o_elaf_hc_estimate { font-style: italic; color: $elaf-muted; }   // label for estimates
+    .o_elaf_hc_forecast { stroke-dasharray: 5 4; }                     // forecast lines in SVG
+    .o_elaf_hc_reco {
+        border-inline-start: 3px solid $elaf-accent; background: $elaf-canvas;
+        padding: 10px 12px; border-radius: 6px; margin-bottom: 8px;
+    }
+    .o_elaf_hc_state {           // loading / empty / error
+        text-align: center; color: $elaf-muted; padding: 48px 16px;
+        .o_elaf_hc_state_title { font-size: 16px; color: $elaf-ink; font-weight: 600; margin-bottom: 6px; }
+        &.error .o_elaf_hc_state_title { color: $elaf-bad; }
+    }
+    svg.o_elaf_hc_chart { width: 100%; height: auto; display: block;
+        .bar { fill: $elaf-accent; } .bar.neg { fill: $elaf-bad; }
+        .axis { stroke: $elaf-line; } text { fill: $elaf-muted; font-size: 11px; }
+        .line { fill: none; stroke: $elaf-accent; stroke-width: 2; }
+        .threshold { stroke: $elaf-bad; stroke-dasharray: 4 3; }
+    }
+}
+@media (max-width: 768px) {
+    .o_elaf_hc_dashboard { padding: 12px;
+        .o_elaf_hc_grid { grid-template-columns: 1fr; } }
+}
+
+// ---------------------------------------------------------------------------
+// ERP Health Check specific components
+// ---------------------------------------------------------------------------
+.o_elaf_hc_dashboard {
+    .o_elaf_hc_edition {
+        display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 11px;
+        font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+        margin-inline-start: 8px; vertical-align: middle;
+        background: lighten($elaf-accent, 50%); color: darken($elaf-accent, 12%);
+        &.is-pro { background: $elaf-accent; color: #fff; }
+    }
+    .o_elaf_hc_runbar {
+        display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+        select { min-width: 160px; }
+    }
+    .o_elaf_hc_hero {
+        display: grid; gap: 16px; margin-block-end: 20px;
+        grid-template-columns: minmax(240px, 320px) 1fr;
+    }
+    .o_elaf_hc_gauge_card {
+        background: $elaf-surface; border: 1px solid $elaf-line; border-radius: 10px;
+        padding: 16px; text-align: center;
+        .o_elaf_hc_gauge_meta { color: $elaf-muted; font-size: 12px; margin-top: 4px; }
+        .o_elaf_hc_delta { font-weight: 600; &.up { color: $elaf-ok; } &.down { color: $elaf-bad; } }
+    }
+    svg.o_elaf_hc_gauge {
+        width: 100%; max-width: 260px; height: auto; display: block; margin: 0 auto;
+        .track { fill: none; stroke: $elaf-line; stroke-width: 14; stroke-linecap: round; }
+        .value { fill: none; stroke-width: 14; stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+        .value.healthy { stroke: $elaf-ok; } .value.attention { stroke: $elaf-warn; } .value.at_risk { stroke: $elaf-bad; }
+        .score { font-size: 40px; font-weight: 700; fill: $elaf-ink; }
+        .label { font-size: 13px; fill: $elaf-muted; }
+    }
+    svg.o_elaf_hc_chart text { font-size: 12px; }
+    svg.o_elaf_hc_chart .bar { cursor: pointer; }
+    .o_elaf_hc_sev {
+        display: flex; flex-direction: column; gap: 8px;
+        .o_elaf_hc_sev_row { display: grid; grid-template-columns: 90px 1fr 60px; gap: 8px; align-items: center; cursor: pointer; }
+        .o_elaf_hc_sev_bar { height: 10px; border-radius: 6px; background: $elaf-canvas; overflow: hidden;
+            span { display: block; height: 100%; border-radius: 6px; } }
+        .critical .o_elaf_hc_sev_bar span { background: darken($elaf-bad, 8%); }
+        .high .o_elaf_hc_sev_bar span { background: $elaf-bad; }
+        .medium .o_elaf_hc_sev_bar span { background: $elaf-warn; }
+        .low .o_elaf_hc_sev_bar span { background: $elaf-info; }
+        .accent .o_elaf_hc_sev_bar span { background: $elaf-accent; }
+    }
+    .o_elaf_hc_pill.critical { background: lighten($elaf-bad, 40%); color: darken($elaf-bad, 10%); }
+    .o_elaf_hc_pill.high { background: lighten($elaf-bad, 45%); color: $elaf-bad; }
+    .o_elaf_hc_pill.medium { background: lighten($elaf-warn, 45%); color: darken($elaf-warn, 8%); }
+    .o_elaf_hc_pill.low { background: lighten($elaf-info, 45%); color: $elaf-info; }
+    .o_elaf_hc_pill.locked { background: #f1f3f5; color: $elaf-muted; }
+    .o_elaf_hc_usage {
+        .o_elaf_hc_progress { height: 10px; background: $elaf-canvas; border-radius: 6px; overflow: hidden; margin: 8px 0;
+            span { display: block; height: 100%; background: $elaf-accent; transition: width .4s; }
+            &.warn span { background: $elaf-warn; } &.bad span { background: $elaf-bad; } }
+    }
+    .o_elaf_hc_banner {
+        display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+        border-radius: 10px; padding: 12px 16px; margin-block-end: 16px;
+        background: lighten($elaf-accent, 52%); border: 1px solid lighten($elaf-accent, 35%);
+        &.warn { background: lighten($elaf-warn, 47%); border-color: lighten($elaf-warn, 30%); }
+        &.bad { background: lighten($elaf-bad, 47%); border-color: lighten($elaf-bad, 30%); }
+    }
+    .o_elaf_hc_locked {
+        display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .o_elaf_hc_locked_item { border: 1px dashed $elaf-line; border-radius: 8px; padding: 10px 12px;
+            color: $elaf-muted; cursor: pointer; background: $elaf-surface;
+            &:hover { border-color: $elaf-accent; } }
+    }
+    .o_elaf_hc_compare_table {
+        td.yes { color: $elaf-ok; font-weight: 700; text-align: center; }
+        td.no { color: $elaf-muted; text-align: center; }
+        th.c { text-align: center; }
+    }
+    .o_elaf_hc_ltr { unicode-bidi: isolate; display: inline-block; }
+    .o_elaf_hc_value { font-size: 22px; font-weight: 700; color: $elaf-ink; }
+    .btn-elaf { background: $elaf-accent; border-color: $elaf-accent; color: #fff;
+        &:hover, &:focus { background: darken($elaf-accent, 6%); border-color: darken($elaf-accent, 6%); color: #fff; }
+        &:disabled { opacity: .6; } }
+}
+@media (max-width: 768px) {
+    .o_elaf_hc_dashboard .o_elaf_hc_hero { grid-template-columns: 1fr; }
+}
+
+// ELAF scroll fix: Odoo sets overflow:hidden on .o_action (3-class rule); let our client actions scroll.
+.o_web_client .o_action_manager > .o_action.o_elaf_hc_dashboard {
+    display: block;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: auto;              // Odoo hides the scrollbar on desktop; show it so users see they can scroll
+    &::-webkit-scrollbar { display: block; width: 10px; }
+    &::-webkit-scrollbar-thumb { background: #c5ccd6; border-radius: 6px; }
+}
